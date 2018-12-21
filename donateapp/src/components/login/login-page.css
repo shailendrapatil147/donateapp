@@ -1,0 +1,38 @@
+:host {
+    display: block;
+
+    padding: 10px;
+  }
+  .wrapper-btns {
+    margin-top: 15px;
+  }
+  paper-button.link {
+    color: #757575;
+  }
+  .alert-error {
+    background: #ffcdd2;
+    border: 1px solid #f44336;
+    border-radius: 3px;
+    color: #333;
+    font-size: 14px;
+    padding: 10px;
+  }
+  input {
+    position: relative; /* to make a stacking context */
+    outline: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--paper-input-container-input-color, var(--primary-text-color));
+    -webkit-appearance: none;
+    text-align: inherit;
+    vertical-align: bottom;
+    /* Firefox sets a min-width on the input, which can cause layout issues */
+    min-width: 0;
+    @apply --paper-font-subhead;
+    @apply --paper-input-container-input;
+  }

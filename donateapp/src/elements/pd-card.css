@@ -1,0 +1,29 @@
+:host{
+    display:inline-block;
+    width:100%;
+    box-sizing:border-box;
+}
+.header {
+    margin:0;
+    padding-top: 0.5em; 
+    padding-bottom: 0.5em; 
+    padding-left: 1em; 
+    padding-right: 1em; 
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ececec;
+}
+
+.pd-card-wrapper {
+    box-sizing:border-box;
+    box-shadow: 0 1px 1px rgba(0,0,0,.15);
+    border-radius:0.2em;
+    margin-right: 1em;
+    margin-left: 1em;
+    margin-top: 1em;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.clearfix {
+    clear: both;
+}

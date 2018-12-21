@@ -1,0 +1,27 @@
+<link rel="import" href="../../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../css/shared-styles.html">
+<link rel="import" href="../publish-work.html">
+
+<dom-module id="home-page">
+    <link rel="import" type="css" href="../../css/shared-styles.css">
+    <link rel="import" type="css" href="home-page.css">
+  <template>
+    <iron-ajax
+      id="getQuoteAjax"
+      auto
+      url="http://localhost:3001/api/random-quote"
+      method="get"
+      handle-as="text"
+      last-response="{{quote}}">
+    </iron-ajax>
+
+    <div class="card">
+      <h1>Quotes</h1>
+      <blockquote>[[quote]]</blockquote>
+      <paper-button raised on-tap="getQuote" class="primary">Get a New Quote</paper-button>
+    </div>
+  </template>
+  <script src="home-page.js"></script>
+</dom-module>

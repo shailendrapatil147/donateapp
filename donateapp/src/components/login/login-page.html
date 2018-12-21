@@ -1,0 +1,52 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../../bower_components/iron-input/iron-input.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/brum-global-variable/brum-global-variable.html">
+<link rel="import" href="../../../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../../css/shared-styles.html">
+
+<dom-module id="login-page">
+    <link rel="import" type="css" href="../../css/shared-styles.css" />
+    <link rel="import" type="css" href="login-page.css" />
+  <template>      
+    <iron-ajax
+      id="registerLoginAjax"
+      method="post"
+      content-type="application/json"
+      handle-as="text"
+      on-response="handleUserResponse"
+      on-error="handleUserError">
+    </iron-ajax>
+
+    <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
+    <brum-global-variable key="userData" value="{{storedUser}}"></brum-global-variable>
+
+    <app-location route="{{route}}"></app-location>
+
+    <div class="card">
+      <div id="unauthenticated" hidden$="[[storedUser.loggedin]]">
+        <h1>Log In</h1>
+        <template is="dom-if" if="[[error]]">
+          <p class="alert-error"><strong>Error:</strong> [[error]]</p>
+        </template>
+        <paper-input label="Username"  bind-value="{{formData.username}}" id="username" type="text" value="{{formData.username}}"></paper-input>
+
+        <paper-input label="Password"  bind-value="{{formData.username}}" id="password" type="password" value="{{formData.password}}"></paper-input>
+
+        <div class="wrapper-btns">
+          <paper-button raised class="primary" on-tap="postLogin">Log In</paper-button>
+          <!-- <paper-button class="link" on-tap="/register-page">Sign Up</paper-button> -->
+        </div>
+      </div>
+      <div id="authenticated" hidden$="[[!storedUser.loggedin]]">
+        <h2>Hello, [[storedUser.name]]!</h2>
+        <p>You are currently logged in. You can access <a href="/secret-quotes">Secret Quotes</a>!</p>
+        <log-out stored-user="{{storedUser}}"></log-out>
+      </div>
+    </div>
+  </template>
+  <script src="login-page.js"></script>
+</dom-module>

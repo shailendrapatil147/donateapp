@@ -1,0 +1,30 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="internalserver-error">
+  <template>
+    <style>
+      :host {
+        display: block;
+
+        padding: 10px 20px;
+      }
+    </style>
+
+    Oops! internal server error. Please tyr again. <a href="[[rootPath]]">Head back to home.</a>
+  </template>
+
+  <script>
+      class InternalServerError extends Polymer.Element {
+          static get is() { return 'internalserver-error'; }
+          static get properties() {
+              return {
+                  // This shouldn't be neccessary, but the Analyzer isn't picking up
+                  // Polymer.Element#rootPath
+                  rootPath: String,
+              };
+          }
+      }
+
+      window.customElements.define(InternalServerError.is, InternalServerError);
+  </script>
+</dom-module>

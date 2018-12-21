@@ -1,0 +1,25 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../elements/pd-card.html" />
+
+<dom-module id="register-page">
+    <link rel="import" type="css" href="../../css/shared-styles.css" />
+    <link rel="import" type="css" href="register-page.css" />
+  <template>      
+      <div class="card">
+          <app-location route="{{route}}"></app-location>
+          <h1>Signup!</h1>
+          <paper-input label="First Name"  auto-validate pattern="[a-zA-Z]*" maxlength="20" error-message="maximum 20 letters only!"></paper-input>
+          <paper-input label="Last Name"  auto-validate pattern="[a-zA-Z]*" maxlength="20" error-message="maximum 20 letters only!"></paper-input>
+          <paper-input label="Email"  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" auto-validate  error-message="invalid email!"></paper-input>
+          <paper-input label="Mobile"  pattern="^[0-9]*$" maxlength="13" auto-validate  error-message="invalid mobile!"></paper-input>
+          <paper-textarea label="Address" char-counter></paper-textarea>
+          <paper-button raised class="primary" on-tap="submit">Log In</paper-button>
+      </div>
+      
+  </template>
+ 
+  <script src="register-page.js"></script>
+</dom-module>

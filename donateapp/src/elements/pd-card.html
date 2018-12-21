@@ -1,0 +1,38 @@
+<dom-module id="pd-card">
+    
+        <link rel="import" type="css" href="pd-card.css">
+        <template>
+            <div class="pd-card-wrapper">
+                <template is="dom-if" if="{{head}}">
+                    <h2 class="header">
+                        <span>{{head}}</span>
+                    </h2>
+                </template>
+                <div class="clearfix"></div>
+            </div>
+        </template>
+    <script>
+        class PdCard extends Polymer.Element{
+                static get is() { return 'pd-card'; }
+
+                static get properties() {
+                return {
+                        head: {
+                            type: String,
+                            value: "",
+                            reflectToAttribute: true,
+                            notify: true
+                        },
+                        fill:{
+                            type:Boolean,
+                            value:false,
+                            reflectToAttribute:true,
+                            notify:true
+                        }
+                }
+            }
+    }
+    window.customElements.define(PdCard.is, PdCard);
+    </script>
+</dom-module>
+    

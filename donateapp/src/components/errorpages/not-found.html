@@ -1,0 +1,30 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../elements/pd-card.html">
+<dom-module id="not-found">
+  <template>
+    <style>
+      :host {
+        display: block;
+
+        padding: 10px 20px;
+      }
+    </style>
+    <pd-card head="Not Found"> Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a> </pd-card>
+    
+  </template>
+
+  <script>
+      class NotFound extends Polymer.Element {
+          static get is() { return 'not-found'; }
+          static get properties() {
+              return {
+                  // This shouldn't be neccessary, but the Analyzer isn't picking up
+                  // Polymer.Element#rootPath
+                  rootPath: String,
+              };
+          }
+      }
+
+      window.customElements.define(NotFound.is, NotFound);
+  </script>
+</dom-module>

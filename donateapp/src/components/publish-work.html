@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../css/shared-styles.html">
+
+<dom-module id="publish-work">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <h1>Publish work</h1>
+
+      <div >
+        <p>Hello,You have access to secret quotes:</p>
+    
+      </div>
+    </div>
+  </template>
+
+  <script>
+    class PublishWork extends Polymer.Element {
+        static get is() { return 'publish-work'; }
+
+        static get properties() {
+            };
+        }
+    window.customElements.define(PublishWork.is, PublishWork);
+  </script>
+</dom-module>
